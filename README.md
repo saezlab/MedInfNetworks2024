@@ -1,4 +1,4 @@
-# Medical Informatics Networks course practicals 2024
+# Medical Informatics Components Networks course practicals 2024
 
 ## Techinical requirements
 
