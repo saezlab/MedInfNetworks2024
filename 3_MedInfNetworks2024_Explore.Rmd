@@ -1,0 +1,70 @@
+---
+title: "Normalization, DE and footprint based analysis"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+editor_options: 
+  markdown: 
+    wrap: 80
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Overview
+In this part of the practical, we will see how to use resources to analyze and interpret results of differential expression analysis.
+
+The first part is optional and is about differential gene expression analysis for RNA sequencing data using DESeq2. There are other tools available for this task, such as edgeR, or limma. DESeq2 is a popular tool for this task, and it is well documented. The DESeq2 vignette is a good starting point to learn how to use the tool.    
+
+```{r, include=FALSE}
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
+  install.packages("BiocManager")
+}
+
+install.packages(c('tidyr', 'tibble', 'dplyr', 'ggplot2', 'pheatmap', 'ggrepel'), repos = "https://stat.ethz.ch/CRAN/")
+
+BiocManager::install(c("DESeq2", 'airway', 'decoupleR'))
+library(DESeq2)
+```
+
+## 1) Differential expression analysis
+*Follow steps until end of Differential expression analysis section*
+<https://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#summarizedexperiment-input>
+
+*Discussion: Variance stabilisation and log-fold shrinkage.*
+
+Consider skimming the rest of the vignette to get a sense of the other functionalities of DESeq2.
+[userguide](https://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html).
+See also the paper
+
+```{r}
+citation("DESeq2")
+
+```
+
+## 2) Footprint based analyses
+
+What is a footprint?
+
+### Pathway signaling activities with PROGENy
+
+**Follow steps in the tutorial**
+<https://saezlab.github.io/decoupleR/articles/pw_bk.html>
+
+
+*Discussion*: 
+- What is the advantage of using the statistics from differential testing?
+- In which situation would you refrain from using the statistics from differential testing?
+
+
+### Transcription factor acitivities with CollecTRI
+
+**Follow steps in the tutorial**
+<https://saezlab.github.io/decoupleR/articles/tf_bk.html>
+
+
+*Discussion*: 
+- What is the difference between ULM and MLM methods ?
+- Do you expect a high expression of TFs to be associated with high activity of the TF?
